@@ -821,33 +821,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488234598}
   m_CullTransparentMesh: 1
---- !u!1 &617500194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 165575398073435193, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
-  m_PrefabInstance: {fileID: 1649955737}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &617500196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617500194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf89abc795db1341a7f5372dddba11c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskMaster
-  uiText: {fileID: 488234600}
-  typeSpeed: 0.04
-  completedDelay: 0.6
-  objectives:
-  - text: Press Space to jump
-    requiredKeys: 20000000
-    completed: 0
-  - text: Press WASD to move
-    requiredKeys: 77000000610000007300000064000000
-    completed: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1119,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166966497}
   m_CullTransparentMesh: 1
+--- !u!1 &1191844261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191844263}
+  - component: {fileID: 1191844262}
+  - component: {fileID: 1191844264}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1191844262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191844261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf89abc795db1341a7f5372dddba11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Taskmaster
+  uiText: {fileID: 488234600}
+  typeSpeed: 0.04
+  completedDelay: 0.5
+  objectives:
+  - text: Press Space to jump
+    requiredKeys: 01000000
+    completed: 0
+  - text: Press WASD to move
+    requiredKeys: 250000000f0000002100000012000000
+    completed: 0
+  - text: Press Ctrl+R to reset
+    requiredKeys: 20000000
+    completed: 0
+  - text: Press Shift to run
+    requiredKeys: 33000000
+    completed: 0
+--- !u!4 &1191844263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191844261}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1884.598, y: -0.00002, z: 9800.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191844264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191844261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457a663f3c3bf7c41b7cd3923412c433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpeedrunTimer
+  countdownMode: 0
+  startMinutes: 0
+  startOnPlay: 1
+  tmpText: {fileID: 1433500289}
+  uiText: {fileID: 0}
 --- !u!1 &1248727387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1309,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -89.713, z: 0}
+--- !u!114 &1433500289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7270440647586133908, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
+  m_PrefabInstance: {fileID: 1649955737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1590194443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1528,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4344016277181418671, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6340126659545449299, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
@@ -1475,10 +1538,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6340126659545449299, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 488234599}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 165575398073435193, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 617500196}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
 --- !u!224 &1649955738 stripped
 RectTransform:
@@ -1611,3 +1671,4 @@ SceneRoots:
   - {fileID: 325839678}
   - {fileID: 330585546}
   - {fileID: 1649955737}
+  - {fileID: 1191844263}
