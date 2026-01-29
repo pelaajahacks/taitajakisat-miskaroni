@@ -9826,15 +9826,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb98d9d4c92c32046ba9581e2943fafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  walkSpeed: 5
-  runSpeed: 9
-  jumpForce: 6
-  gravity: -7.9
+  cam: {fileID: 523663373}
+  head: {fileID: 0}
+  speed: 55
   mouseSensitivity: 300
-  cameraHolder: {fileID: 523663373}
-  slideSpeed: 14
-  slideTime: 0.5
-  slideHeight: 1
+  airMovement: 0.6
+  groundDrag: 4
+  airDrag: 3
+  jumpForce: 6
+  useWallrun: 1
+  wallrunlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  wallRunCheckRange: 1
+  maxYVel: -10
+  wallRunUp: 12
+  wallRunJump: 300
+  wallRunJumpUpMulti: 0.6
+  wallRunMovementMulti: 0.7
+  blockDoubleWallrun: 1
+  checkType: 0
+  grounded: 0
+  groundCheckRadius: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!136 &1915426147
 CapsuleCollider:
   m_ObjectHideFlags: 0
