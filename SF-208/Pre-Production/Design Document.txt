@@ -1,0 +1,14 @@
+Design Document
+
+The game focuses on speedrunning, and includes a timer to encourage the player to achieve the lowest time possible.
+
+[Miska kertoo sit lisää kontrolleist ja mapist]
+The controls are responsive
+
+Level design is structured around distinct color-coded sections. Each color corresponds to different gameplay mechanics, helping communicate changes in mechanics, and supporting player readability.
+
+To create time pressure, the player will die, if they are too slow. Behind them, is a wall that will kill you if it catches the player.
+
+The game has a jump-pad, for the unique mechanic not listed on the clients basic movement plan.
+
+
