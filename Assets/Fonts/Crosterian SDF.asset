@@ -7299,7 +7299,63 @@ MonoBehaviour:
           m_XAdvance: 0
           m_YAdvance: 0
       m_FeatureLookupFlags: 1
-    m_MarkToBaseAdjustmentRecords: []
+    m_MarkToBaseAdjustmentRecords:
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 37.08
+        m_YCoordinate: 63.000004
+      m_MarkGlyphID: 227
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -16.380001
+        m_YPositionAdjustment: 53.100002
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 37.08
+        m_YCoordinate: 63.000004
+      m_MarkGlyphID: 228
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -8.190001
+        m_YPositionAdjustment: 53.100002
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 37.08
+        m_YCoordinate: 63.000004
+      m_MarkGlyphID: 229
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -7.2000003
+        m_YPositionAdjustment: 53.100002
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 37.08
+        m_YCoordinate: 63.000004
+      m_MarkGlyphID: 230
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -17.730001
+        m_YPositionAdjustment: 53.100002
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 37.08
+        m_YCoordinate: 63.000004
+      m_MarkGlyphID: 232
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -15.4800005
+        m_YPositionAdjustment: 53.100002
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 37.08
+        m_YCoordinate: 63.000004
+      m_MarkGlyphID: 233
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -16.29
+        m_YPositionAdjustment: 53.100002
+    - m_BaseGlyphID: 128
+      m_BaseGlyphAnchorPoint:
+        m_XCoordinate: 39.600002
+        m_YCoordinate: 0
+      m_MarkGlyphID: 234
+      m_MarkPositionAdjustment:
+        m_XPositionAdjustment: -7.11
+        m_YPositionAdjustment: 0
     m_MarkToMarkAdjustmentRecords: []
   m_ShouldReimportFontFeatures: 0
   m_FallbackFontAssetTable: []
