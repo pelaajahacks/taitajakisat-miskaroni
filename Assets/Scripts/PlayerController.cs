@@ -142,7 +142,7 @@ public class Movement : MonoBehaviour
 
         isWallrunning = false;
 
-        Physics.gravity = new Vector3(0, -30f, 0);
+        Physics.gravity = new Vector3(0, -75f, 0);
     }
 
     private void Start()
