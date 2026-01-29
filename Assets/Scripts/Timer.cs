@@ -102,7 +102,7 @@ public class SpeedrunTimer : MonoBehaviour
         int seconds = Mathf.FloorToInt(currentTime % 60f);
         int milliseconds = Mathf.FloorToInt((currentTime * 1000f) % 1000f);
 
-        string timeString = string.Format("{0:00}:{1:00}.{2:000}", minutes, seconds, milliseconds);
+        string timeString = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
 
         if (tmpText != null)
             tmpText.text = timeString;
