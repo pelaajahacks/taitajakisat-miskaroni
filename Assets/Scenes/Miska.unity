@@ -1161,6 +1161,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8890154554718973195, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
+      propertyPath: objectives.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890154554718973195, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
+      propertyPath: objectives.Array.data[4].text
+      value: You can wallrun, by running next to a wall. Press space to stop wallrunning.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890154554718973195, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
+      propertyPath: objectives.Array.data[4].requiredKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890154554718973195, guid: d216f5f4fe598a34f99607feae25011a, type: 3}
+      propertyPath: 'objectives.Array.data[4].requiredKeys.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
