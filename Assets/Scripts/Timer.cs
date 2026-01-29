@@ -1,14 +1,17 @@
 using UnityEngine;
 using TMPro; // Remove if not using TMP
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SpeedrunTimer : MonoBehaviour
 {
     [Header("Timer Mode")]
-    [SerializeField] private bool countdownMode = false;
+    public bool countdownMode = false;
+    [SerializeField] private bool startBlocker = false;
+    
 
     [Header("Starting Time (Example: 5 minutes)")]
-    [SerializeField] private float startMinutes = 5f;
+    [SerializeField] private float startSeconds = 5f;
 
     [Header("Auto Start")]
     [SerializeField] private bool startOnPlay = true;
@@ -17,8 +20,13 @@ public class SpeedrunTimer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmpText;
     [SerializeField] private Text uiText;
 
-    private float currentTime;
-    private bool isRunning;
+    [Header("Removing objects")]
+    [SerializeField] private List<GameObject> objectsToRemove;
+
+    public float currentTime;
+    public bool isRunning;
+
+    public bool timerEnded = false;
 
     void Start()
     {
@@ -38,7 +46,28 @@ public class SpeedrunTimer : MonoBehaviour
         {
             currentTime = 0f;
             isRunning = false;
+            timerEnded = true;
+
+            if (startBlocker)
+            {
+                // Implement start blocker logic here
+                Debug.Log("Timer ended. Start Blocker activated.");
+                
+                isRunning = true;
+                currentTime = startSeconds;
+                countdownMode = false;
+                startSeconds = 0f;
+
+                foreach (GameObject obj in objectsToRemove)
+                {
+                    if (obj != null)
+                        Destroy(obj);
+                }
+                ResetTimer();
+
+            }
         }
+
 
         UpdateUI();
     }
@@ -59,7 +88,7 @@ public class SpeedrunTimer : MonoBehaviour
 
     public void ResetTimer()
     {
-        currentTime = startMinutes * 60f;
+        currentTime = startSeconds;
         UpdateUI();
     }
 
