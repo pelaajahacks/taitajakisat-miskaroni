@@ -1,11 +1,18 @@
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     public static Movement Instance;
+    public AudioSource audioSource;
+    public AudioClip jumpSFX;
+    public AudioClip[] runSFX; // Put run1, run2 here
+
+    public float stepRate = 0.4f; // time between footsteps
+
+    private float stepTimer;
+
 
     [Header("Objects")]
 
@@ -149,8 +156,24 @@ public class Movement : MonoBehaviour
     {
         groundCheck.transform.localPosition = new Vector3(0f, -0.95f, 0f);
     }
+    // Call this when the player jumps
+    public void PlayJump()
+    {
+        if (jumpSFX != null)
+            audioSource.PlayOneShot(jumpSFX);
+    }
+    // Call this while running
+    public void PlayRun()
+    {
+        if (runSFX.Length > 0)
+        {
+            // Pick a random run sound each step
+            int index = UnityEngine.Random.Range(0, runSFX.Length);
+            audioSource.PlayOneShot(runSFX[index]);
+        }
+    }
 
-    private void Update()
+private void Update()
     {
         Look();
 
@@ -163,6 +186,18 @@ public class Movement : MonoBehaviour
 
         isRunning = Input.GetKey(KeyCode.LeftShift);
         speed = isRunning ? runSpeed : walkSpeed;
+
+        if (isRunning)
+        {
+            stepTimer -= Time.deltaTime;
+
+            if (stepTimer <= 0f)
+            {
+                PlayRun();          // 👈 THIS IS HOW YOU USE IT
+                stepTimer = stepRate;
+            }
+        }
+
 
         HandleSlide();
     }
@@ -327,6 +362,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
+        PlayJump();
         if (rb.linearVelocity.y < 0)
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
 
