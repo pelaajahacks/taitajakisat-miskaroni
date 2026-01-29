@@ -5710,6 +5710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JumpPad
   launchDirection: {x: 0, y: 1, z: 0}
   launchForce: 240
+  jump: {fileID: 8300000, guid: c9392c1c90778584b9efa8ae0d155920, type: 3}
+  source: {fileID: 396611985}
 --- !u!65 &542221690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14697,6 +14699,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JumpPad
   launchDirection: {x: 0, y: 1, z: 0}
   launchForce: 240
+  jump: {fileID: 8300000, guid: c9392c1c90778584b9efa8ae0d155920, type: 3}
+  source: {fileID: 396611985}
 --- !u!65 &1643476477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16957,6 +16961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JumpPad
   launchDirection: {x: 0, y: 1, z: 0}
   launchForce: 240
+  jump: {fileID: 8300000, guid: c9392c1c90778584b9efa8ae0d155920, type: 3}
+  source: {fileID: 396611985}
 --- !u!65 &1971530947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17586,6 +17592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JumpPad
   launchDirection: {x: 0, y: 1, z: 0}
   launchForce: 240
+  jump: {fileID: 8300000, guid: c9392c1c90778584b9efa8ae0d155920, type: 3}
+  source: {fileID: 396611985}
 --- !u!65 &2115386491
 BoxCollider:
   m_ObjectHideFlags: 0
