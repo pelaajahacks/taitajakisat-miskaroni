@@ -16,6 +16,11 @@ public class Movement : MonoBehaviour
     private Transform groundCheck;
     private Rigidbody rb;
 
+    [Header("Running")]
+    public float walkSpeed = 55f;
+    public float runSpeed = 80f;
+    private bool isRunning;
+
     [Header("Movement")]
 
     public float speed = 55f;
@@ -76,6 +81,18 @@ public class Movement : MonoBehaviour
     public bool blockDoubleWallrun = true;
     private GameObject lastWallRunObject;
 
+    [Header("Sliding")]
+    public float slideSpeed = 100f;
+    public float slideDecayRate = 1f; // fraction per second
+    public float slideHeight = 1f;
+    private bool isSliding = false;
+    private float slideHoldTime = 0f;
+
+    [Header("Camera")]
+    public float slideCameraDuration = 0.1f;
+
+    private float currentSlideSpeed;
+
     [Header("GroundCheck")]
 
     [Tooltip("Ground Detection Type: Spherecast is more accurate but uses more performance, Raycast uses less performance but is less accurate")]
@@ -124,6 +141,8 @@ public class Movement : MonoBehaviour
         groundHits = new RaycastHit[10];
 
         isWallrunning = false;
+
+        Physics.gravity = new Vector3(0, -30f, 0);
     }
 
     private void Start()
@@ -141,6 +160,11 @@ public class Movement : MonoBehaviour
         jump = Input.GetKey(KeyCode.Space);
 
         GroundCheck();
+
+        isRunning = Input.GetKey(KeyCode.LeftShift);
+        speed = isRunning ? runSpeed : walkSpeed;
+
+        HandleSlide();
     }
 
     private void FixedUpdate()
@@ -198,6 +222,80 @@ public class Movement : MonoBehaviour
         cam.localRotation = Quaternion.Euler(xRotation, desiredX, cam.localRotation.eulerAngles.z);
         look.localRotation = Quaternion.Euler(0, desiredX, 0f);
     }
+
+    void HandleSlide()
+    {
+        // Start slide while holding Ctrl
+        if (Input.GetKey(KeyCode.LeftControl) && grounded && !isSliding)
+            StartSlide();
+
+        // Stop slide if released or jump pressed
+        if (isSliding && (!Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.Space)))
+            StopSlide();
+
+        // Update speed while sliding
+        if (isSliding)
+        {
+            slideHoldTime += Time.deltaTime;
+            currentSlideSpeed = slideSpeed * Mathf.Pow(slideDecayRate, slideHoldTime);
+
+            // Move player in full input direction
+            Vector3 moveDir = (look.forward * vertical + look.right * horizontal).normalized;
+
+            if (moveDir != Vector3.zero)
+            {
+                Vector3 slideMove = moveDir * currentSlideSpeed * Time.deltaTime;
+                rb.MovePosition(rb.position + slideMove);
+            }
+        }
+    }
+
+    void StartSlide()
+    {
+        isSliding = true;
+        slideHoldTime = 0f;
+        currentSlideSpeed = slideSpeed;
+
+        // Shrink collider
+        CapsuleCollider cap = GetComponent<CapsuleCollider>();
+        cap.height = slideHeight;
+        cap.center = new Vector3(0, slideHeight / 2f, 0);
+
+        // Lower camera smoothly
+        if (cam != null)
+            StartCoroutine(MoveCameraHeight(cam.localPosition.y, slideHeight / 2f, slideCameraDuration));
+    }
+
+    void StopSlide()
+    {
+        isSliding = false;
+
+        // Restore collider
+        CapsuleCollider cap = GetComponent<CapsuleCollider>();
+        cap.height = 2f; // normal height
+        cap.center = new Vector3(0, 1f, 0);
+
+        // Raise camera smoothly
+        if (cam != null)
+            StartCoroutine(MoveCameraHeight(cam.localPosition.y, 1f, slideCameraDuration));
+    }
+
+    IEnumerator MoveCameraHeight(float from, float to, float duration)
+    {
+        float elapsed = 0f;
+        Vector3 camPos = cam.localPosition;
+
+        while (elapsed < duration)
+        {
+            float newY = Mathf.Lerp(from, to, elapsed / duration);
+            cam.localPosition = new Vector3(camPos.x, newY, camPos.z);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cam.localPosition = new Vector3(camPos.x, to, camPos.z);
+    }
+
 
     private void GroundCheck()
     {
