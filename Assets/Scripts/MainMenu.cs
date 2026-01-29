@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Load the next scene (make sure it's in Build Settings)
-        SceneManager.LoadScene("Miska");
+        SceneManager.LoadScene("Map");
     }
 
     public void QuitGame()
